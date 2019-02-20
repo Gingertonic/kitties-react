@@ -6,7 +6,7 @@ class AnimalGenerator extends Component {
   constructor(){
     super()
     this.state = {
-      chosenKitty: "http://www.catster.com/wp-content/uploads/2017/08/A-fluffy-cat-looking-funny-surprised-or-concerned.jpg",
+      chosenKitty: "http://shirtigo.co/wp-content/uploads/2014/02/catvideos.jpg",
       kitties: [],
       counter: 0,
       current: 0,
@@ -16,7 +16,7 @@ class AnimalGenerator extends Component {
   }
 
   chooseRandomKitty = () => {
-    const i = Math.floor(Math.random()*10)
+    const i = Math.floor(Math.random()*9)
     console.log(i)
     const chosenKitty = this.state.kitties[i]
     const newCount =  this.state.counter + 1
@@ -36,14 +36,13 @@ class AnimalGenerator extends Component {
     this.startKittyPicker()
   }
 
-
   componentDidMount = () => {
     console.log("Hi from componentDidMount AnimalGenerator")
     this.fetchKitties()
   }
 
-
   componentWillUnmount() {
+    console.log("AnimalGenerator Unmounted!")
     clearInterval(this.state.interval)
   }
 

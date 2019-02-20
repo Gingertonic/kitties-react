@@ -6,13 +6,17 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      generating: false
+      generating: true
     }
     console.log("Hi from Constructor App")
   }
 
   componentDidMount = () => {
     console.log("Hi from componentDidMount App")
+  }
+  
+  componentWillUnmount() {
+    console.log("App Unmounted!")
   }
 
   toggleGenerator = () => {

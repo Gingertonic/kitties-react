@@ -10,6 +10,10 @@ class AnimalFlashcard extends Component {
     console.log("Hi from Constructor AnimalFlashcard")
   }
 
+  componentWillUnmount = () => {
+    console.log("will unmount")
+  }
+
   static getDerivedStateFromProps = (props, state) => {
     if (!state.tracker.includes(props.chosenKitty)) {
       return {
@@ -20,13 +24,20 @@ class AnimalFlashcard extends Component {
     return null
   }
 
-
   shouldComponentUpdate = (nextProps, nextState) => {
     return !this.state.tracker.includes(nextState.kitty)
   }
 
+  componentDidUpdate = (props, state, snapshot) => {
+    console.log("Hi from CDU Flashcard")
+  }
+
   componentDidMount = () => {
     console.log("Hi from componentDidMount AnimalFlashcard")
+  }
+
+  componentWillUnmount() {
+    console.log("AnimalFlashcard Unmounted!")
   }
 
   render() {
