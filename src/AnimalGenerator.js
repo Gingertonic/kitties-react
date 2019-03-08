@@ -16,20 +16,20 @@ class AnimalGenerator extends Component {
   }
 
   chooseRandomKitty = () => {
-    const i = Math.floor(Math.random()*9)
+    const i = Math.floor(Math.random()*10)
     console.log(i)
     const chosenKitty = this.state.kitties[i]
     const newCount =  this.state.counter + 1
-    this.setState({chosenKitty: chosenKitty, counter: newCount, current: i})
+    this.setState({chosenKitty: chosenKitty, counter: newCount, current: i + 1})
   }
 
   startKittyPicker = () => {
-    const interval = setInterval(this.chooseRandomKitty, 3000)
+    const interval = setInterval(this.chooseRandomKitty, 2500)
     this.setState({interval})
   }
 
   fetchKitties = () => {
-    fetch("https://api.thecatapi.com/v1/images/search?limit=9&page=10&order=Desc")
+    fetch("https://api.thecatapi.com/v1/images/search?limit=10&page=10&order=Desc")
       .then(resp => resp.json())
       .then(results => results.map(k => k.url))
       .then(kitties => this.setState({kitties}))
@@ -50,7 +50,7 @@ class AnimalGenerator extends Component {
     console.log("Hi from Render AnimalGenerator")
     return (
       <div>
-        <AnimalFlashcard chosenKitty={this.state.chosenKitty}/>
+        <AnimalFlashcard chosenKitty={this.state.chosenKitty} trackingId={this.state.current}/>
         <h4>Total Rolling Counter: {this.state.counter}</h4>
         <h4>Current selected: {this.state.current}</h4>
       </div>

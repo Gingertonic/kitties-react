@@ -5,32 +5,38 @@ class AnimalFlashcard extends Component {
     super(props)
     this.state = {
       kitty: "",
-      tracker: []
+      tracker: [],
+      allkitties: []
     }
     console.log("Hi from Constructor AnimalFlashcard")
   }
 
-  componentWillUnmount = () => {
-    console.log("will unmount")
-  }
-
   static getDerivedStateFromProps = (props, state) => {
-    if (!state.tracker.includes(props.chosenKitty)) {
-      return {
-        kitty: props.chosenKitty,
-        tracker: [...state.tracker, props.chosenKitty]
+      console.log("Hi from gDSFP AnimalFlashcard")
+      if (!state.tracker.includes(props.trackingId)){
+        return {
+          kitty: props.chosenKitty,
+          tracker: [...state.tracker, props.trackingId]
+        }
       }
-    }
-    return null
+      return null
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    return !this.state.tracker.includes(nextState.kitty)
+    console.log("Hi from should? AnimalFlashcard")
+    console.log(!this.state.tracker.includes(nextProps.trackingId))
+    return !this.state.tracker.includes(nextProps.trackingId)
   }
 
-  componentDidUpdate = (props, state, snapshot) => {
-    console.log("Hi from CDU Flashcard")
-  }
+  // getSnapshotBeforeUpdate(prevProps, prevState){
+  //  // typical use case is for scroll position
+  //  console.log("snapshotting")
+  //  return prevProps.chosenKitty
+  // }
+  //
+  // componentDidUpdate = (props, state, snapshot) => {
+  //   console.log("Hi from CDU Flashcard with snapshot: " + snapshot)
+  // }
 
   componentDidMount = () => {
     console.log("Hi from componentDidMount AnimalFlashcard")
@@ -42,10 +48,12 @@ class AnimalFlashcard extends Component {
 
   render() {
     console.log("Hi from Render AnimalFlashcard")
+    const renderChosenKitties = this.state.tracker.sort((a, b) => a - b).map(id => id !== 0 ? <li key={id}>{id}</li> : null)
     return (
       <div>
         <img src={this.state.kitty} alt="kitty"/>
-        <h2>{this.state.tracker.length} Kitteh</h2>
+        <h2>{this.state.tracker.length - 1} Kitteh</h2>
+        <div id="chosen-ones">{renderChosenKitties}</div>
       </div>
     )
   }
