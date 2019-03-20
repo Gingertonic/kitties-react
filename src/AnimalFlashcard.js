@@ -28,23 +28,23 @@ class AnimalFlashcard extends Component {
     return !this.state.tracker.includes(nextProps.trackingId)
   }
 
-  // getSnapshotBeforeUpdate(prevProps, prevState){
-  //  // typical use case is for scroll position
-  //  console.log("snapshotting")
-  //  return prevProps.chosenKitty
-  // }
+  // // getSnapshotBeforeUpdate(prevProps, prevState){
+  // //  // typical use case is for scroll position
+  // //  console.log("snapshotting")
+  // //  return prevProps.chosenKitty
+  // // }
+  // //
+  // // componentDidUpdate = (props, state, snapshot) => {
+  // //   console.log("Hi from CDU Flashcard with snapshot: " + snapshot)
+  // // }
   //
-  // componentDidUpdate = (props, state, snapshot) => {
-  //   console.log("Hi from CDU Flashcard with snapshot: " + snapshot)
-  // }
-
   componentDidMount = () => {
     console.log("Hi from componentDidMount AnimalFlashcard")
   }
-
-  componentWillUnmount() {
-    console.log("AnimalFlashcard Unmounted!")
-  }
+  //
+  // componentWillUnmount() {
+  //   console.log("AnimalFlashcard Unmounted!")
+  // }
 
   render() {
     console.log("Hi from Render AnimalFlashcard")

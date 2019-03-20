@@ -18,7 +18,7 @@ class App extends Component {
   // componentWillUnmount() {
   //   console.log("App Unmounted!")
   // }
-  //
+
   toggleGenerator = () => {
     this.state.generating ? this.setState({generating: false}) : this.setState({generating: true})
   }
