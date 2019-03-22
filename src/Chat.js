@@ -47,7 +47,7 @@ class Chat extends Component {
     const renderMessages = this.state.messages.map((m, idx) => <li key={idx} className="chat-message">{m}</li>)
     return (
       <div id="chat">
-        <div onClick={() => this.props.open(false)}>Close Chat</div>
+        <div id="close-chat" onClick={() => this.props.open(false)}>Close Chat</div>
         <div id="messages" ref={this.chatThreadRef}>
           <ul>
             {renderMessages}
