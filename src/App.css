@@ -34,3 +34,60 @@ li {
   margin-left: 1vh;
   margin-right: 1vh;
 }
+
+#chat, #chat-thumb {
+  background-color: darkblue;
+  width: 20%;
+  color: white;
+  border-radius: 10%;
+  padding: 1vh;
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+}
+
+#chat-thumb {
+  height: 5vh;
+  width: 5%;
+  padding: 1vh;
+  border-radius: 50%;
+}
+
+#chat {
+  height: 50vh;
+}
+
+#messages {
+  height: 80%;
+  overflow: scroll;
+}
+
+#chat-input {
+  width: 80%;
+  color: white;
+  border: none;
+  border-top: 1px solid white;
+  padding-top: 2vh;
+  background-color: rgba(0,0,0,0);
+  position: absolute;
+  bottom: 10%;;
+  right: 10%;
+  font-size: 1em;
+}
+
+#chat-input:focus {
+  outline: none;
+}
+
+ul {
+  text-align: left;
+  padding-left: 1vw;
+}
+
+.chat-message {
+  padding: 1vh;
+  background-color: rgba(200, 0, 200, 1);
+  border-radius: 10%;
+  margin-bottom: 1vh;
+  width: 60%;
+}
