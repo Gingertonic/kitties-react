@@ -3,6 +3,7 @@ import AnimalFlashcard from './AnimalFlashcard'
 
 
 class AnimalGenerator extends Component {
+  // Lifecycle (mounting)
   constructor(){
     super()
     this.state = {
@@ -15,6 +16,7 @@ class AnimalGenerator extends Component {
     console.log("Hi from Constructor AnimalGenerator")
   }
 
+   // Custom 
   chooseRandomKitty = () => {
     const i = Math.floor(Math.random()*10)
     console.log(i)
@@ -22,12 +24,14 @@ class AnimalGenerator extends Component {
     const newCount =  this.state.counter + 1
     this.setState({chosenKitty: chosenKitty, counter: newCount, current: i + 1})
   }
-
+  
+  // Custom
   startKittyPicker = () => {
     const interval = setInterval(this.chooseRandomKitty, 2500)
     this.setState({interval})
   }
 
+  // Custom
   fetchKitties = () => {
     fetch("https://api.thecatapi.com/v1/images/search?limit=10&page=10&order=Desc")
       .then(resp => resp.json())
@@ -36,16 +40,19 @@ class AnimalGenerator extends Component {
     this.startKittyPicker()
   }
 
+   // Lifecycle (Mounting)
   componentDidMount = () => {
     console.log("Hi from componentDidMount AnimalGenerator")
     this.fetchKitties()
   }
 
+   // Lifecycle (unmounting)
   componentWillUnmount() {
     console.log("AnimalGenerator Unmounted!")
     clearInterval(this.state.interval)
   }
 
+   // Lifecycle (mounting and updating)
   render(){
     console.log("Hi from Render AnimalGenerator")
     return (

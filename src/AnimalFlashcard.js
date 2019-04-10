@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 
 class AnimalFlashcard extends Component {
-  constructor(props){
-    super(props)
+  // Lifecycle (mounting)
+  constructor(){
+    super()
     this.state = {
       kitty: "",
       tracker: [],
@@ -11,8 +12,9 @@ class AnimalFlashcard extends Component {
     console.log("Hi from Constructor AnimalFlashcard")
   }
 
+   // Lifecycle (mounting and updating)
   static getDerivedStateFromProps = (props, state) => {
-      console.log("Hi from gDSFP AnimalFlashcard")
+      // console.log("Hi from gDSFP AnimalFlashcard")
       if (!state.tracker.includes(props.trackingId)){
         return {
           kitty: props.chosenKitty,
@@ -22,12 +24,14 @@ class AnimalFlashcard extends Component {
       return null
   }
 
+   // Lifecycle (updating)
   shouldComponentUpdate = (nextProps, nextState) => {
-    console.log("Hi from should? AnimalFlashcard")
-    console.log(!this.state.tracker.includes(nextProps.trackingId))
+    // console.log("Hi from should? AnimalFlashcard")
+    // console.log(!this.state.tracker.includes(nextProps.trackingId))
     return !this.state.tracker.includes(nextProps.trackingId)
   }
 
+  // SEE CHAT COMP FOR LESS CONTRIVED DEMO!
   // // getSnapshotBeforeUpdate(prevProps, prevState){
   // //  // typical use case is for scroll position
   // //  console.log("snapshotting")
@@ -37,15 +41,18 @@ class AnimalFlashcard extends Component {
   // // componentDidUpdate = (props, state, snapshot) => {
   // //   console.log("Hi from CDU Flashcard with snapshot: " + snapshot)
   // // }
-  //
+
+ // Lifecycle (mounting)
   componentDidMount = () => {
     console.log("Hi from componentDidMount AnimalFlashcard")
   }
-  //
+
+   // Lifecycle (UNMOUNTING)
   // componentWillUnmount() {
   //   console.log("AnimalFlashcard Unmounted!")
   // }
 
+   // Lifecycle (mounting Aand updating)
   render() {
     console.log("Hi from Render AnimalFlashcard")
     const renderChosenKitties = this.state.tracker.sort((a, b) => a - b).map(id => id !== 0 ? <li key={id}>{id}</li> : null)
