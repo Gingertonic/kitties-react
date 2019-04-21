@@ -66,6 +66,10 @@ li {
   overflow: scroll;
 }
 
+#messages::-webkit-scrollbar {
+  display: none;
+ }
+
 #chat-input {
   width: 80%;
   color: white;

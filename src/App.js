@@ -21,9 +21,9 @@ class App extends Component {
   }
   
    // Lifecycle (unmounting)
-  // componentWillUnmount() {
-  //   console.log("App Unmounted!")
-  // }
+  componentWillUnmount() {
+    console.log("App Unmounted!")
+  }
 
    // Custom
   toggleGenerator = () => {

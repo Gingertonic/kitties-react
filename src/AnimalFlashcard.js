@@ -48,9 +48,9 @@ class AnimalFlashcard extends Component {
   }
 
    // Lifecycle (UNMOUNTING)
-  // componentWillUnmount() {
-  //   console.log("AnimalFlashcard Unmounted!")
-  // }
+  componentWillUnmount() {
+    console.log("AnimalFlashcard Unmounted!")
+  }
 
    // Lifecycle (mounting Aand updating)
   render() {
