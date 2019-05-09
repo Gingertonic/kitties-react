@@ -52,6 +52,11 @@ class AnimalGenerator extends Component {
     clearInterval(this.state.interval)
   }
 
+   // Lifecycle (update)
+   componentDidUpdate = () => {
+    console.log("Hi from componentDidUpdate AnimalGenerator")
+  }
+
    // Lifecycle (mounting and updating)
   render(){
     console.log("Hi from Render AnimalGenerator")

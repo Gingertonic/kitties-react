@@ -33,14 +33,10 @@ class Chat extends Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (snapshot !== null) {
       const chatThreadRef = this.chatThreadRef.current;
-      console.log(chatThreadRef.scrollTop)
-      console.log(chatThreadRef.scrollHeight - snapshot)
+      console.log('Old position was ', chatThreadRef.scrollTop)
+      console.log('New position was ', chatThreadRef.scrollHeight - snapshot)
       chatThreadRef.scrollTop = chatThreadRef.scrollHeight - snapshot;
     }
-  }
-
-  printScroll = e => {
-    console.log(e.target.scrollTop)
   }
 
   render = () => {

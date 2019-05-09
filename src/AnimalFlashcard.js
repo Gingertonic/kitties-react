@@ -14,7 +14,7 @@ class AnimalFlashcard extends Component {
 
    // Lifecycle (mounting and updating)
   static getDerivedStateFromProps = (props, state) => {
-      // console.log("Hi from gDSFP AnimalFlashcard")
+      console.log("Hi from gDSFP AnimalFlashcard")
       if (!state.tracker.includes(props.trackingId)){
         return {
           kitty: props.chosenKitty,
@@ -26,7 +26,7 @@ class AnimalFlashcard extends Component {
 
    // Lifecycle (updating)
   shouldComponentUpdate = (nextProps, nextState) => {
-    // console.log("Hi from should? AnimalFlashcard")
+    console.log("Hi from should? AnimalFlashcard")
     // console.log(!this.state.tracker.includes(nextProps.trackingId))
     return !this.state.tracker.includes(nextProps.trackingId)
   }
@@ -41,6 +41,11 @@ class AnimalFlashcard extends Component {
   // // componentDidUpdate = (props, state, snapshot) => {
   // //   console.log("Hi from CDU Flashcard with snapshot: " + snapshot)
   // // }
+
+  // Lifecycle (update)
+  componentDidUpdate = () => {
+    console.log("Hi from componentDidUpdate AnimalFlashcard")
+  }
 
  // Lifecycle (mounting)
   componentDidMount = () => {
